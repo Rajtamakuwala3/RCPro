@@ -28,8 +28,6 @@ const registerAdmin = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Please provide all fields");
   }
 
-  
-
   const { data: existingUser } = await supabase
     .from("admin")
     .select("email")
@@ -62,6 +60,7 @@ const registerAdmin = asyncHandler(async (req, res) => {
     .single();
 
   if (createdError) {
+    console.error("Supabase insert error:", createdError);
     throw new ApiError(500, "Something went wrong while creating user");
   }
 

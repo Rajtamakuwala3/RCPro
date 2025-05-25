@@ -25,11 +25,14 @@ app.use(cookieParser())
 // Routes
 
 import adminRoutes from "./routes/admin.routes.js";
+import ocrHandlerRoutes from "./routes/ocrHandler.routes.js";
+import customerRoutes from "./routes/customer.routes.js"
 
 // Routes declaration
 
 app.use("/api/v1/admin", adminRoutes);
-
+app.use("/api/v1/ocr", ocrHandlerRoutes);
+app.use("/api/v1/customer", customerRoutes)
 
 
 export { app }
