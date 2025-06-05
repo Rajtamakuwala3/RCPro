@@ -3,6 +3,7 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import axios from "axios";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
+import supabase from "../db/dbConnect.js";
 
 // Optional: Basic key-value line parser
 function parseRCStatusText(text) {
@@ -121,7 +122,71 @@ function parseRCStatusText(text) {
   return json;
 }
 
+//Date converter
+// function convertToSupabaseDate(inputDate) {
+//   if (!inputDate) return null;
+
+//   const [day, monthStr, year] = inputDate.split("-");
+//   const months = {
+//     Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+//     Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+//   };
+
+//   const month = months[monthStr];
+//   if (month === undefined || isNaN(day) || isNaN(year)) {
+//     console.warn("Invalid date format received:", inputDate); // helpful debug log
+//     return null;
+//   }
+
+//   const date = new Date(year, month, day);
+//   return isNaN(date.getTime()) ? null : date.toISOString().split("T")[0];
+// }
+
+function convertToSupabaseDate(inputDate) {
+  if (!inputDate) return null;
+
+  // Handle DD/MM/YYYY format
+  if (inputDate.includes("/")) {
+    const [day, month, year] = inputDate.split("/").map(Number);
+    const date = new Date(year, month - 1, day);
+    return isNaN(date.getTime()) ? null : date.toISOString().split("T")[0];
+  }
+
+  // Handle DD-MMM-YYYY format (e.g. 05-Dec-2027)
+  const [day, monthStr, year] = inputDate.split("-");
+  const months = {
+    Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+    Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+  };
+
+  const month = months[monthStr];
+  if (month === undefined || isNaN(day) || isNaN(year)) {
+    console.warn("Invalid date format received:", inputDate);
+    return null;
+  }
+
+  const date = new Date(year, month, parseInt(day));
+  return isNaN(date.getTime()) ? null : date.toISOString().split("T")[0];
+}
+
+
 const ocrHandler = asyncHandler(async (req, res) => {
+  // get image from req.file
+  // check image path is proper or not
+  // uplaod image on cloudinary
+  // check image url from response
+  // apply ocr to convert image to text
+  // convert text to json formate
+  // check all fields are present in json if not set that data as null
+  // store ocr data in OCR Data table
+  // store data in db RC Book table
+
+  const { id } = req.body;
+
+  if (!id) {
+    throw new ApiError(400, "CustomerId is not provided");
+  }
+  console.log(id);
   const rcBookLocalPath = req.file;
   if (!rcBookLocalPath) {
     throw new ApiError(400, "Please provide a file");
@@ -146,7 +211,7 @@ const ocrHandler = asyncHandler(async (req, res) => {
       language: "eng",
       isOverlayRequired: "false",
       scale: true,
-      OCREngine: 2,
+      // OCREngine: 2,
       isTable: true,
     }),
     {
@@ -157,13 +222,74 @@ const ocrHandler = asyncHandler(async (req, res) => {
   );
 
   const parsedResult = ocrResponse.data?.ParsedResults?.[0]?.ParsedText;
+  // console.log(parsedResult)
   if (!parsedResult) {
     throw new ApiError(500, "OCR failed or returned empty text");
   }
   // console.log(parsedResult);
   const extractedJson = parseRCStatusText(parsedResult);
-  
-  
+  // console.log(extractedJson)
+
+  const newRegDate = convertToSupabaseDate(extractedJson.rc_status.registration_date)
+  const newFitnessExpDate = convertToSupabaseDate(extractedJson.validity.fitness_regn)
+  const newPuccExpDate = convertToSupabaseDate(extractedJson.validity.pucc)
+  const newInsuranceExpDate = convertToSupabaseDate(extractedJson.Insurance_Details.Validity)
+  const newPermitExpDate = convertToSupabaseDate(extractedJson.Permit_Details.valid_upto)
+  const newCertificateExpDate = convertToSupabaseDate(extractedJson.CNG_Hydro_Testing_Certificate_Details.Next_Test_Due)
+
+  const data = {
+    vehicleNo: extractedJson.rc_status.registration_number ?? null,
+    registrationDate: newRegDate ?? null,
+    fitnessExpDate: newFitnessExpDate ?? null,
+    puccExpDate: newPuccExpDate ?? null,
+    insuranceCompName: extractedJson.Insurance_Details.Company ?? null,
+    insuranceExpDate: newInsuranceExpDate ?? null,
+    policyNo: extractedJson.Insurance_Details.Policy_No ?? null,
+    permitNo: extractedJson.Permit_Details.permit_no ?? null,
+    permitExpDate: newPermitExpDate ?? null,
+    certificateNo:
+      extractedJson.CNG_Hydro_Testing_Certificate_Details
+        .Testing_Certificate_No ?? null,
+    certificateExpDate: newCertificateExpDate ?? null,
+  };
+  // console.log(data)
+
+  console.log("Insert payload: ", {
+  customerId: Number(id),
+  ...data,
+  imageUrl,
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+});
+
+  const { data: RcDetails, error: RcError } = await supabase
+    .from("RC Book")
+    .insert([
+      {
+        customerId: Number(id),
+        vehicleNo: data.vehicleNo,
+        registrationDate: data.registrationDate,
+        fitnessExpDate: data.fitnessExpDate,
+        puccExpDate: data.puccExpDate,
+        insuranceCompName: data.insuranceCompName,
+        insuranceExpDate: data.insuranceExpDate,
+        policyNo: data.policyNo,
+        permitNo: data.permitNo,
+        permitExpDate: data.permitExpDate,
+        certificateNo: data.certificateNo,
+        certificateExpDate: data.certificateExpDate,
+        imageUrl: imageUrl,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+    ]).select();
+
+  if (RcError) {
+      console.error("Supabase Insert Error:", RcError);
+      throw new ApiError(500, `Database Insert Error: ${RcError.message || RcError.details || "Unknown error"}`);
+    }
+
+    console.log("Successfully inserted:", RcDetails);
 
 
   return res
