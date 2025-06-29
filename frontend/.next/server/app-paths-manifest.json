@@ -1,10 +1,1 @@
-{
-  "/customer/existing-customer/page": "app/customer/existing-customer/page.js",
-  "/customer/new-customer/page": "app/customer/new-customer/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/filter/cylinder/page": "app/filter/cylinder/page.js",
-  "/filter/fitness/page": "app/filter/fitness/page.js",
-  "/filter/insurance/page": "app/filter/insurance/page.js",
-  "/filter/vehicleno/page": "app/filter/vehicleno/page.js",
-  "/page": "app/page.js"
-}
+{}
