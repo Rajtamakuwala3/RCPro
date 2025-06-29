@@ -1,27 +1,33 @@
 # Node.js dependencies
+node_modules/
 **/node_modules/
+
+# Build output
+dist/
+build/
 **/dist/
 **/build/
 
 # Logs
-**/npm-debug.log*
-**/yarn-debug.log*
-**/yarn-error.log*
-**/pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Environment variables
+.env
+.env.*
 **/.env
 **/.env.*
 
 # VSCode settings
 .vscode/
 
-# OS-specific
+# OS-specific files
 .DS_Store
 Thumbs.db
 
-# Package lock files (optional to ignore if using a lockfile strategy)
-# Uncomment if you don't want to commit them
+# Optional: Ignore lock files if not needed
 # package-lock.json
 # yarn.lock
 # pnpm-lock.yaml
