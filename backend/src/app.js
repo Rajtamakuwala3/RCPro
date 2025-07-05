@@ -1,12 +1,13 @@
 import express from 'express'
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import { errorHandler } from './utils/errorHandler.js';
 
 const app = express()
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:8080', // Or '*', but specific is better
+  origin: 'http://localhost:3000', // Or '*', but specific is better
   credentials: true // If you're using cookies
 }));
 app.use(express.json())
@@ -35,6 +36,8 @@ app.use("/api/v1/admin", adminRoutes);
 app.use("/api/v1/ocr", ocrHandlerRoutes);
 app.use("/api/v1/customer", customerRoutes);
 app.use("/api/v1/fetch", filterRoutes);
+
+app.use(errorHandler)
 
 
 export { app }

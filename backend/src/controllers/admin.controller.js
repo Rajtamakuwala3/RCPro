@@ -88,12 +88,12 @@ const loginAdmin = asyncHandler(async (req, res) => {
         .single();
 
     if(error || !admin) {
-        throw new ApiError(401, "Invalid credentials");
+        throw new ApiError(401, "Invalid Email.");
     }
 
     const validPassword = await bcrypt.compare(password, admin.password);
     if(!validPassword) {
-        throw new ApiError(401, "Invalid credentials");
+        throw new ApiError(401, "Invalid Password.");
     }
 
     const adminData = {email, name : admin.name};
