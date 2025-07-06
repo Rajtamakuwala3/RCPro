@@ -32,7 +32,7 @@ const getRCBookByVehicleNo = asyncHandler(async (req, res) => {
 });
 
 const searchByInsuranceMonth = asyncHandler(async (req, res) => {
-  const { month, year } = req.body;
+  const { month, year } = req.query;
 
   if (!month || !year) {
     throw new ApiError(
@@ -70,7 +70,7 @@ const searchByInsuranceMonth = asyncHandler(async (req, res) => {
 });
 
 const searchByFitnessExpMonth = asyncHandler(async (req, res) => {
-  const { month, year } = req.body;
+  const { month, year } = req.query;
 
   if (!month || !year) {
     throw new ApiError(
@@ -108,7 +108,7 @@ const searchByFitnessExpMonth = asyncHandler(async (req, res) => {
 });
 
 const searchByCylinderExpMonth = asyncHandler(async (req, res) => {
-  const { month, year } = req.body;
+  const { month, year } = req.query;
 
   if (!month || !year) {
     throw new ApiError(

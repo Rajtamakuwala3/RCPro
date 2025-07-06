@@ -33,15 +33,15 @@ const customerHandler = asyncHandler(async (req, res) => {
     .select()
     .single();
 
-    const newCustomer = {...response}
-    delete newCustomer.id;
+    // const newCustomer = {...response}
+    // delete newCustomer.id;
 
     if(createdError) {
         throw new ApiError(500, "Someting went wrong while creating new customer")
     }
 
     res.status(200)
-    .json(new ApiResponse(200, newCustomer,"New customer created successfully"))
+    .json(new ApiResponse(200, response,"New customer created successfully"))
 
 });
 

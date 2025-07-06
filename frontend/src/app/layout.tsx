@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/NavBar";
 import { AuthProvider } from "@/components/authCheck";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 // const geistSans = Geist({
@@ -32,12 +33,15 @@ export default function RootLayout({
       <body
         className={inter.className}
       >
+      
+
         <AuthProvider>
 
         <Navbar></Navbar>
         {/* <h1>Global Nav</h1> */}
         {children}
         </AuthProvider>
+       
       </body>
     </html>
   );
