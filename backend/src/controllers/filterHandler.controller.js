@@ -26,9 +26,34 @@ const getRCBookByVehicleNo = asyncHandler(async (req, res) => {
     );
   }
 
+  console.log(data)
+
+  const {data: customerData, error: customerError} = await supabase
+  .from("customer")
+  .select("name, phoneNo")
+  .eq("id", data.customerId)
+  .single();
+
+  if (customerError) {
+    console.error("Supabase customer fetch error:", customerError);
+    throw new ApiError(
+      500,
+      `Error fetching customer data: ${customerError.message}`
+    );
+  }
+
+  console.log(customerData)
+
+  const mergedData = {
+    ...data,
+    customerId: data.customerId,
+    customerName: customerData.name,
+    customerPhoneNo: customerData.phoneNo,
+  };
+
   return res
     .status(200)
-    .json(new ApiResponse(200, data, "RC Book data retrieved successfully"));
+    .json(new ApiResponse(200, mergedData, "RC Book data retrieved successfully"));
 });
 
 const searchByInsuranceMonth = asyncHandler(async (req, res) => {
@@ -47,7 +72,13 @@ const searchByInsuranceMonth = asyncHandler(async (req, res) => {
 
   const { data, error } = await supabase
     .from("RC Book")
-    .select("*")
+    .select(`
+      *,
+      customer:customerId (
+        name,
+        phoneNo
+      ) 
+      `)
     .gte("insuranceExpDate", startDate)
     .lte("insuranceExpDate", endDate);
 
@@ -85,7 +116,13 @@ const searchByFitnessExpMonth = asyncHandler(async (req, res) => {
 
   const { data, error } = await supabase
     .from("RC Book")
-    .select("*")
+    .select(`
+      *,
+      customer:customerId (
+        name,
+        phoneNo
+      ) 
+      `)
     .gte("fitnessExpDate", startDate)
     .lte("fitnessExpDate", endDate);
 

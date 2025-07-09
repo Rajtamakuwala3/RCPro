@@ -319,14 +319,34 @@ function Page() {
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHeader"], {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableRow"], {
-                                    children: Object.keys(data[0] || {}).filter((key)=>key !== "createdAt" && key !== "updatedAt").map((key)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
-                                            children: key
-                                        }, key, false, {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
+                                            children: "Customer Name"
+                                        }, void 0, false, {
                                             fileName: "[project]/src/app/filter/insurance/page.tsx",
-                                            lineNumber: 93,
-                                            columnNumber: 23
-                                        }, this))
-                                }, void 0, false, {
+                                            lineNumber: 90,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
+                                            children: "Phone No"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/filter/insurance/page.tsx",
+                                            lineNumber: 91,
+                                            columnNumber: 19
+                                        }, this),
+                                        Object.keys(data[0] || {}).filter((key)=>![
+                                                "customer",
+                                                "createdAt",
+                                                "updatedAt"
+                                            ].includes(key)).map((key)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
+                                                children: key
+                                            }, key, false, {
+                                                fileName: "[project]/src/app/filter/insurance/page.tsx",
+                                                lineNumber: 98,
+                                                columnNumber: 23
+                                            }, this))
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/app/filter/insurance/page.tsx",
                                     lineNumber: 89,
                                     columnNumber: 17
@@ -338,32 +358,54 @@ function Page() {
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableBody"], {
                                 children: data.map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableRow"], {
-                                        children: Object.entries(item).filter(([key])=>key !== "createdAt" && key !== "updatedAt").map(([key, value])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
-                                                className: "break-words whitespace-pre-wrap max-w-[160px]",
-                                                children: key === "imageUrl" && value ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                    href: value,
-                                                    target: "_blank",
-                                                    rel: "noopener noreferrer",
-                                                    className: "text-blue-400 underline",
-                                                    children: "RC BOOK IMAGE"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/filter/insurance/page.tsx",
-                                                    lineNumber: 110,
-                                                    columnNumber: 29
-                                                }, this) : value?.toString()
-                                            }, key, false, {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                className: "break-words max-w-[160px] whitespace-pre-wrap",
+                                                children: item.customer?.name || "N/A"
+                                            }, void 0, false, {
                                                 fileName: "[project]/src/app/filter/insurance/page.tsx",
                                                 lineNumber: 105,
-                                                columnNumber: 25
-                                            }, this))
-                                    }, idx, false, {
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                className: "break-words max-w-[160px] whitespace-pre-wrap",
+                                                children: item.customer?.phoneNo || "N/A"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/filter/insurance/page.tsx",
+                                                lineNumber: 108,
+                                                columnNumber: 21
+                                            }, this),
+                                            Object.entries(item).filter(([key])=>![
+                                                    "customer",
+                                                    "createdAt",
+                                                    "updatedAt"
+                                                ].includes(key)).map(([key, value])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
+                                                    className: "break-words max-w-[160px] whitespace-pre-wrap",
+                                                    children: key === "imageUrl" && value ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                        href: value,
+                                                        target: "_blank",
+                                                        rel: "noopener noreferrer",
+                                                        className: "text-blue-400 underline",
+                                                        children: "RC BOOK IMAGE"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/filter/insurance/page.tsx",
+                                                        lineNumber: 123,
+                                                        columnNumber: 29
+                                                    }, this) : value?.toString()
+                                                }, key, false, {
+                                                    fileName: "[project]/src/app/filter/insurance/page.tsx",
+                                                    lineNumber: 118,
+                                                    columnNumber: 25
+                                                }, this))
+                                        ]
+                                    }, idx, true, {
                                         fileName: "[project]/src/app/filter/insurance/page.tsx",
-                                        lineNumber: 99,
+                                        lineNumber: 104,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/filter/insurance/page.tsx",
-                                lineNumber: 97,
+                                lineNumber: 102,
                                 columnNumber: 15
                             }, this)
                         ]
@@ -381,7 +423,7 @@ function Page() {
                     children: "No data available for selected month/year."
                 }, void 0, false, {
                     fileName: "[project]/src/app/filter/insurance/page.tsx",
-                    lineNumber: 130,
+                    lineNumber: 143,
                     columnNumber: 13
                 }, this)
             ]

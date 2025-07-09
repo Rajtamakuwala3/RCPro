@@ -87,8 +87,13 @@ function Page() {
               </TableCaption>
               <TableHeader>
                 <TableRow>
+                  <TableHead>Customer Name</TableHead>
+                  <TableHead>Phone No</TableHead>
                   {Object.keys(data[0] || {})
-                    .filter((key) => key !== "createdAt" && key !== "updatedAt")
+                    .filter(
+                      (key) =>
+                        !["customer", "createdAt", "updatedAt"].includes(key)
+                    )
                     .map((key) => (
                       <TableHead key={key}>{key}</TableHead>
                     ))}
@@ -97,15 +102,23 @@ function Page() {
               <TableBody>
                 {data.map((item, idx) => (
                   <TableRow key={idx}>
+                    <TableCell className="break-words max-w-[160px] whitespace-pre-wrap">
+                      {item.customer?.name || "N/A"}
+                    </TableCell>
+                    <TableCell className="break-words max-w-[160px] whitespace-pre-wrap">
+                      {item.customer?.phoneNo || "N/A"}
+                    </TableCell>
+
                     {Object.entries(item)
                       .filter(
-                        ([key]) => key !== "createdAt" && key !== "updatedAt"
+                        ([key]) =>
+                          !["customer", "createdAt", "updatedAt"].includes(key)
                       )
                       .map(([key, value]) => (
                         <TableCell
-  key={key}
-  className="break-words whitespace-pre-wrap max-w-[160px]"
->
+                          key={key}
+                          className="break-words max-w-[160px] whitespace-pre-wrap"
+                        >
                           {key === "imageUrl" && value ? (
                             <a
                               href={value as string}

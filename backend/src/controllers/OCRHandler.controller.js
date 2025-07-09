@@ -288,9 +288,22 @@ const ocrHandler = asyncHandler(async (req, res) => {
       console.error("Supabase Insert Error:", RcError);
       throw new ApiError(500, `Database Insert Error: ${RcError.message || RcError.details || "Unknown error"}`);
     }
+  console.log("Successfully inserted:", RcDetails);
 
-    console.log("Successfully inserted:", RcDetails);
+    const {data: OCRData, errror: OCRError} = await supabase
+    .from('OCR Data')
+    .insert([{
+      vehicleId: data.vehicleNo,
+      data: parsedResult,
+      createdAt: new Date().toISOString()
+    }])
 
+    if(OCRError) {
+      console.error("Supabase Insert Error:", RcError);
+      throw new ApiError(500, `Database Insert Error: ${RcError.message || RcError.details || "Unknown error"}`);
+    }
+
+    console.log("OCRData added successfully.")
 
   return res
     .status(200)

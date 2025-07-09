@@ -165,7 +165,7 @@ function page() {
                             onChange: (e)=>setVehicleNo(e.target.value.toUpperCase())
                         }, void 0, false, {
                             fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                            lineNumber: 49,
+                            lineNumber: 51,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -174,50 +174,57 @@ function page() {
                             children: loading ? "Searching..." : "Search"
                         }, void 0, false, {
                             fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                            lineNumber: 54,
+                            lineNumber: 56,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                    lineNumber: 48,
+                    lineNumber: 50,
                     columnNumber: 9
                 }, this),
-                rcData && Object.entries(rcData).map(([key, value])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex justify-between text-sm",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-gray-400",
-                                children: key
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                                lineNumber: 62,
-                                columnNumber: 7
-                            }, this),
-                            key === "imageUrl" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                href: value,
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                className: "text-blue-400 hover:underline font-medium",
-                                children: "RC BOOK IMAGE"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                                lineNumber: 64,
-                                columnNumber: 9
-                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "font-medium",
-                                children: value?.toString()
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                                lineNumber: 73,
-                                columnNumber: 9
-                            }, this)
-                        ]
-                    }, key, true, {
-                        fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                        lineNumber: 61,
-                        columnNumber: 5
-                    }, this))
+                rcData && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "space-y-2",
+                    children: Object.entries(rcData).filter(([key])=>key !== "createdAt" && key !== "updatedAt" && key !== "customerId").map(([key, value])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex justify-between items-start text-sm gap-2 border-b border-white/10 py-1",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "text-gray-400 capitalize whitespace-nowrap",
+                                    children: key
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/filter/vehicleno/page.tsx",
+                                    lineNumber: 75,
+                                    columnNumber: 19
+                                }, this),
+                                key === "imageUrl" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                    href: value,
+                                    target: "_blank",
+                                    rel: "noopener noreferrer",
+                                    className: "text-blue-400 hover:underline font-medium",
+                                    children: "RC BOOK IMAGE"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/filter/vehicleno/page.tsx",
+                                    lineNumber: 79,
+                                    columnNumber: 21
+                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "font-medium text-right break-words max-w-[60%]",
+                                    children: value?.toString()
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/filter/vehicleno/page.tsx",
+                                    lineNumber: 88,
+                                    columnNumber: 21
+                                }, this)
+                            ]
+                        }, key, true, {
+                            fileName: "[project]/src/app/filter/vehicleno/page.tsx",
+                            lineNumber: 71,
+                            columnNumber: 17
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/src/app/filter/vehicleno/page.tsx",
+                    lineNumber: 62,
+                    columnNumber: 11
+                }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/filter/vehicleno/page.tsx",
