@@ -697,6 +697,7 @@ var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_
 __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__ = __turbopack_context__.i("[project]/node_modules/zod/v3/external.js [app-client] (ecmascript) <export * as z>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$hook$2d$form$2f$dist$2f$index$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-hook-form/dist/index.esm.mjs [app-client] (ecmascript)");
@@ -723,6 +724,7 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 ;
 ;
 ;
+const apiUrl = ("TURBOPACK compile-time value", "https://rcstatus-backend.onrender.com");
 const FormSchema = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].object({
     name: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].string().min(2, {
         message: "Name must be at least 2 characters."
@@ -749,7 +751,7 @@ function OcrUploadSection({ customerId }) {
         formData.append("image", file);
         try {
             setUploading(true);
-            const res = await fetch("http://localhost:8080/api/v1/ocr/imagetotext", {
+            const res = await fetch(`${apiUrl}/api/v1/ocr/imagetotext`, {
                 method: "POST",
                 body: formData,
                 credentials: "include"
@@ -776,7 +778,7 @@ function OcrUploadSection({ customerId }) {
                 children: "Upload RC Book Image"
             }, void 0, false, {
                 fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                lineNumber: 76,
+                lineNumber: 77,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -785,12 +787,12 @@ function OcrUploadSection({ customerId }) {
                     onChange: (files)=>setFile(files[0] || null)
                 }, void 0, false, {
                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                    lineNumber: 78,
+                    lineNumber: 79,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                lineNumber: 77,
+                lineNumber: 78,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -802,18 +804,18 @@ function OcrUploadSection({ customerId }) {
                     children: uploading ? "Uploading..." : "Submit for OCR"
                 }, void 0, false, {
                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                    lineNumber: 81,
+                    lineNumber: 82,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                lineNumber: 80,
+                lineNumber: 81,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/customer/new-customer/page.tsx",
-        lineNumber: 75,
+        lineNumber: 76,
         columnNumber: 5
     }, this);
 }
@@ -836,7 +838,7 @@ function page() {
     });
     const onSubmit = async (data)=>{
         try {
-            const response = await fetch("http://localhost:8080/api/v1/customer/create", {
+            const response = await fetch(`${apiUrl}/api/v1/customer/create`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -872,7 +874,7 @@ function page() {
                         children: "Create New Customer"
                     }, void 0, false, {
                         fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                        lineNumber: 144,
+                        lineNumber: 145,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Form"], {
@@ -890,7 +892,7 @@ function page() {
                                                     children: "Name"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                    lineNumber: 154,
+                                                    lineNumber: 155,
                                                     columnNumber: 23
                                                 }, void 0),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -899,28 +901,28 @@ function page() {
                                                         ...field
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                        lineNumber: 156,
+                                                        lineNumber: 157,
                                                         columnNumber: 25
                                                     }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                    lineNumber: 155,
+                                                    lineNumber: 156,
                                                     columnNumber: 23
                                                 }, void 0),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormMessage"], {}, void 0, false, {
                                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                    lineNumber: 158,
+                                                    lineNumber: 159,
                                                     columnNumber: 23
                                                 }, void 0)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 153,
+                                            lineNumber: 154,
                                             columnNumber: 21
                                         }, void 0)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                    lineNumber: 149,
+                                    lineNumber: 150,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -932,7 +934,7 @@ function page() {
                                                     children: "Phone Number"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                    lineNumber: 168,
+                                                    lineNumber: 169,
                                                     columnNumber: 23
                                                 }, void 0),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -941,28 +943,28 @@ function page() {
                                                         ...field
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                        lineNumber: 170,
+                                                        lineNumber: 171,
                                                         columnNumber: 25
                                                     }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                    lineNumber: 169,
+                                                    lineNumber: 170,
                                                     columnNumber: 23
                                                 }, void 0),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormMessage"], {}, void 0, false, {
                                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                    lineNumber: 172,
+                                                    lineNumber: 173,
                                                     columnNumber: 23
                                                 }, void 0)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 167,
+                                            lineNumber: 168,
                                             columnNumber: 21
                                         }, void 0)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                    lineNumber: 163,
+                                    lineNumber: 164,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormField"], {
@@ -974,7 +976,7 @@ function page() {
                                                     children: "Address"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                    lineNumber: 182,
+                                                    lineNumber: 183,
                                                     columnNumber: 23
                                                 }, void 0),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormControl"], {
@@ -983,28 +985,28 @@ function page() {
                                                         ...field
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                        lineNumber: 184,
+                                                        lineNumber: 185,
                                                         columnNumber: 25
                                                     }, void 0)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                    lineNumber: 183,
+                                                    lineNumber: 184,
                                                     columnNumber: 23
                                                 }, void 0),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FormMessage"], {}, void 0, false, {
                                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                                    lineNumber: 186,
+                                                    lineNumber: 187,
                                                     columnNumber: 23
                                                 }, void 0)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 181,
+                                            lineNumber: 182,
                                             columnNumber: 21
                                         }, void 0)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                    lineNumber: 177,
+                                    lineNumber: 178,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1013,18 +1015,18 @@ function page() {
                                     children: "Create New Customer"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                    lineNumber: 191,
+                                    lineNumber: 192,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                            lineNumber: 148,
+                            lineNumber: 149,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                        lineNumber: 147,
+                        lineNumber: 148,
                         columnNumber: 13
                     }, this)
                 ]
@@ -1035,7 +1037,7 @@ function page() {
                         children: "Customer Created Successfully"
                     }, void 0, false, {
                         fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                        lineNumber: 199,
+                        lineNumber: 200,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1051,7 +1053,7 @@ function page() {
                                             children: "Customer ID"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 205,
+                                            lineNumber: 206,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1059,13 +1061,13 @@ function page() {
                                             children: newCustomer.id
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 206,
+                                            lineNumber: 207,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                    lineNumber: 204,
+                                    lineNumber: 205,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1076,7 +1078,7 @@ function page() {
                                             children: "Name"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 209,
+                                            lineNumber: 210,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1084,13 +1086,13 @@ function page() {
                                             children: newCustomer.name
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 210,
+                                            lineNumber: 211,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                    lineNumber: 208,
+                                    lineNumber: 209,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1101,7 +1103,7 @@ function page() {
                                             children: "Phone No"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 213,
+                                            lineNumber: 214,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1109,13 +1111,13 @@ function page() {
                                             children: newCustomer.phoneNo
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 214,
+                                            lineNumber: 215,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                    lineNumber: 212,
+                                    lineNumber: 213,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1126,7 +1128,7 @@ function page() {
                                             children: "Address"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 217,
+                                            lineNumber: 218,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1134,13 +1136,13 @@ function page() {
                                             children: newCustomer.address
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 218,
+                                            lineNumber: 219,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                    lineNumber: 216,
+                                    lineNumber: 217,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1151,7 +1153,7 @@ function page() {
                                             children: "Created At"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 221,
+                                            lineNumber: 222,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1159,43 +1161,43 @@ function page() {
                                             children: new Date(newCustomer.createdAt).toLocaleString()
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                            lineNumber: 222,
+                                            lineNumber: 223,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                                    lineNumber: 220,
+                                    lineNumber: 221,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                            lineNumber: 203,
+                            lineNumber: 204,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                        lineNumber: 202,
+                        lineNumber: 203,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(OcrUploadSection, {
                         customerId: newCustomer.id
                     }, void 0, false, {
                         fileName: "[project]/src/app/customer/new-customer/page.tsx",
-                        lineNumber: 228,
+                        lineNumber: 229,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true)
         }, void 0, false, {
             fileName: "[project]/src/app/customer/new-customer/page.tsx",
-            lineNumber: 141,
+            lineNumber: 142,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/customer/new-customer/page.tsx",
-        lineNumber: 140,
+        lineNumber: 141,
         columnNumber: 5
     }, this);
 }

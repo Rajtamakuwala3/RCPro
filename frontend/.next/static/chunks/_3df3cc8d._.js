@@ -103,6 +103,7 @@ var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_
 __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/input.tsx [app-client] (ecmascript)");
@@ -113,6 +114,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+const apiUrl = ("TURBOPACK compile-time value", "https://rcstatus-backend.onrender.com");
 function page() {
     _s();
     const [vehicleNo, setVehicleNo] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
@@ -125,7 +127,7 @@ function page() {
         }
         try {
             setLoading(true);
-            const res = await fetch(`http://localhost:8080/api/v1/fetch/fetchbyvehicleno/${vehicleNo}`, {
+            const res = await fetch(`${apiUrl}/api/v1/fetch/fetchbyvehicleno/${vehicleNo}`, {
                 method: "GET",
                 credentials: "include"
             });
@@ -153,7 +155,7 @@ function page() {
                     children: "Search RC Book by Vehicle Number"
                 }, void 0, false, {
                     fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                    lineNumber: 47,
+                    lineNumber: 48,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -165,7 +167,7 @@ function page() {
                             onChange: (e)=>setVehicleNo(e.target.value.toUpperCase())
                         }, void 0, false, {
                             fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                            lineNumber: 51,
+                            lineNumber: 52,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -174,13 +176,13 @@ function page() {
                             children: loading ? "Searching..." : "Search"
                         }, void 0, false, {
                             fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                            lineNumber: 56,
+                            lineNumber: 57,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                    lineNumber: 50,
+                    lineNumber: 51,
                     columnNumber: 9
                 }, this),
                 rcData && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -193,7 +195,7 @@ function page() {
                                     children: key
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                                    lineNumber: 75,
+                                    lineNumber: 76,
                                     columnNumber: 19
                                 }, this),
                                 key === "imageUrl" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -204,36 +206,36 @@ function page() {
                                     children: "RC BOOK IMAGE"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                                    lineNumber: 79,
+                                    lineNumber: 80,
                                     columnNumber: 21
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "font-medium text-right break-words max-w-[60%]",
                                     children: value?.toString()
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                                    lineNumber: 88,
+                                    lineNumber: 89,
                                     columnNumber: 21
                                 }, this)
                             ]
                         }, key, true, {
                             fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                            lineNumber: 71,
+                            lineNumber: 72,
                             columnNumber: 17
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-                    lineNumber: 62,
+                    lineNumber: 63,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-            lineNumber: 46,
+            lineNumber: 47,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/filter/vehicleno/page.tsx",
-        lineNumber: 45,
+        lineNumber: 46,
         columnNumber: 5
     }, this);
 }
