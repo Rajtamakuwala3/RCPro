@@ -43,5 +43,8 @@ app.use("/api/v1/fetch", filterRoutes);
 
 app.use(errorHandler)
 
+app.get('/health', (req, res) => {
+  res.status(200).send('Backend is working!');
+});
 
 export { app }

@@ -220,6 +220,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$b
 ;
 ;
 ;
+const apiUrl = ("TURBOPACK compile-time value", "https://rcstatus-backend.onrender.com");
 function Page() {
     const [month, setMonth] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(11);
     const [year, setYear] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(2025);
@@ -233,7 +234,7 @@ function Page() {
         setLoading(true);
         setData([]);
         try {
-            const url = `http://localhost:8080/api/v1/fetch/fetchfitnessdata?month=${month}&year=${year}`;
+            const url = `${apiUrl}/api/v1/fetch/fetchfitnessdata?month=${month}&year=${year}`;
             const res = await fetch(url, {
                 method: "GET",
                 credentials: "include"
@@ -261,7 +262,7 @@ function Page() {
                     children: "Fetch Fitness Data by Month & Year"
                 }, void 0, false, {
                     fileName: "[project]/src/app/filter/fitness/page.tsx",
-                    lineNumber: 55,
+                    lineNumber: 56,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -275,7 +276,7 @@ function Page() {
                             onChange: (e)=>setMonth(Number(e.target.value))
                         }, void 0, false, {
                             fileName: "[project]/src/app/filter/fitness/page.tsx",
-                            lineNumber: 59,
+                            lineNumber: 60,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -286,7 +287,7 @@ function Page() {
                             onChange: (e)=>setYear(Number(e.target.value))
                         }, void 0, false, {
                             fileName: "[project]/src/app/filter/fitness/page.tsx",
-                            lineNumber: 66,
+                            lineNumber: 67,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -296,13 +297,13 @@ function Page() {
                             children: loading ? "Loading..." : "Fetch"
                         }, void 0, false, {
                             fileName: "[project]/src/app/filter/fitness/page.tsx",
-                            lineNumber: 73,
+                            lineNumber: 74,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/filter/fitness/page.tsx",
-                    lineNumber: 58,
+                    lineNumber: 59,
                     columnNumber: 9
                 }, this),
                 data.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -314,7 +315,7 @@ function Page() {
                                 children: "Fetched RC Book Insurance Data"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                lineNumber: 85,
+                                lineNumber: 86,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHeader"], {
@@ -324,14 +325,14 @@ function Page() {
                                             children: "Customer Name"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                            lineNumber: 90,
+                                            lineNumber: 91,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableHead"], {
                                             children: "Phone No"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                            lineNumber: 91,
+                                            lineNumber: 92,
                                             columnNumber: 19
                                         }, this),
                                         Object.keys(data[0] || {}).filter((key)=>![
@@ -342,18 +343,18 @@ function Page() {
                                                 children: key
                                             }, key, false, {
                                                 fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                                lineNumber: 98,
+                                                lineNumber: 99,
                                                 columnNumber: 23
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                    lineNumber: 89,
+                                    lineNumber: 90,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                lineNumber: 88,
+                                lineNumber: 89,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -364,7 +365,7 @@ function Page() {
                                                 children: item.customer?.name || "N/A"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                                lineNumber: 105,
+                                                lineNumber: 106,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -372,7 +373,7 @@ function Page() {
                                                 children: item.customer?.phoneNo || "N/A"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                                lineNumber: 108,
+                                                lineNumber: 109,
                                                 columnNumber: 21
                                             }, this),
                                             Object.entries(item).filter(([key])=>![
@@ -389,52 +390,52 @@ function Page() {
                                                         children: "RC BOOK IMAGE"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                                        lineNumber: 123,
+                                                        lineNumber: 124,
                                                         columnNumber: 29
                                                     }, this) : value?.toString()
                                                 }, key, false, {
                                                     fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                                    lineNumber: 118,
+                                                    lineNumber: 119,
                                                     columnNumber: 25
                                                 }, this))
                                         ]
                                     }, idx, true, {
                                         fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                        lineNumber: 104,
+                                        lineNumber: 105,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/filter/fitness/page.tsx",
-                                lineNumber: 102,
+                                lineNumber: 103,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/filter/fitness/page.tsx",
-                        lineNumber: 84,
+                        lineNumber: 85,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/filter/fitness/page.tsx",
-                    lineNumber: 83,
+                    lineNumber: 84,
                     columnNumber: 11
                 }, this) : !loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-sm text-gray-400",
                     children: "No data available for selected month/year."
                 }, void 0, false, {
                     fileName: "[project]/src/app/filter/fitness/page.tsx",
-                    lineNumber: 143,
+                    lineNumber: 144,
                     columnNumber: 13
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/filter/fitness/page.tsx",
-            lineNumber: 54,
+            lineNumber: 55,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/filter/fitness/page.tsx",
-        lineNumber: 53,
+        lineNumber: 54,
         columnNumber: 5
     }, this);
 }
