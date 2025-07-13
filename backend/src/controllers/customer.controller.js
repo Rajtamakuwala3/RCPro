@@ -5,7 +5,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { subtle } from "crypto";
 import supabase from "../db/dbConnect.js";
 
-const customerHandler = asyncHandler(async (req, res) => {
+const NewCustomerHandler = asyncHandler(async (req, res) => {
   // get name, phoneNo, address from req.body
   // verfiy  name, phoneNo, address
   // CREATE SEQUENCE customer_id_seq START 10000001;
@@ -45,4 +45,26 @@ const customerHandler = asyncHandler(async (req, res) => {
 
 });
 
-export {customerHandler}
+const ExistingCustomerHandler = asyncHandler(async (req, res) => {
+  const { q } = req.query;
+
+  if (!q || q.trim().length < 1) {
+    return res.status(200).json(new ApiResponse(200, [], "Empty search query"));
+  }
+
+  const { data, error } = await supabase
+  .from("customer")
+  .select("id, name, phoneNo")
+  .ilike("name", `%${q}%`)
+  .limit(10); // Case-insensitive partial match
+
+  if (error) {
+    throw new ApiError(500, "Error fetching customer suggestions");
+  }
+
+  return res.status(200).json(
+    new ApiResponse(200, data, "Suggestions fetched successfully")
+  );
+})
+
+export {NewCustomerHandler, ExistingCustomerHandler}

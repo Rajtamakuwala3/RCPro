@@ -211,7 +211,7 @@ const ocrHandler = asyncHandler(async (req, res) => {
       language: "eng",
       isOverlayRequired: "false",
       scale: true,
-      // OCREngine: 2,
+      OCREngine: 2,
       isTable: true,
     }),
     {
