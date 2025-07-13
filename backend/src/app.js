@@ -7,10 +7,13 @@ const app = express()
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000',
-  'https://your-frontend-domain.com'], // Or '*', but specific is better
-  credentials: true // If you're using cookies
+  origin: [
+    'http://localhost:3000', // for local dev
+    'https://rcstatus-frontend.onrender.com' // for deployed frontend
+  ],
+  credentials: true
 }));
+
 app.use(express.json())
 
 app.use(express.json({ limit: "16kb" }));
