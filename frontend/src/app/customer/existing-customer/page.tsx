@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FileUpload } from "@/components/ui/file-upload";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL
 
 function OcrUploadSection({ customerId }: { customerId: number }) {
   const [file, setFile] = useState<File | null>(null);
@@ -21,7 +22,7 @@ function OcrUploadSection({ customerId }: { customerId: number }) {
 
     try {
       setUploading(true);
-      const res = await fetch("http://localhost:8080/api/v1/ocr/imagetotext", {
+      const res = await fetch(`${apiUrl}/api/v1/ocr/imagetotext`, {
         method: "POST",
         body: formData,
         credentials: "include",
@@ -78,7 +79,7 @@ function Page() {
     const delayDebounce = setTimeout(async () => {
       try {
         const res = await fetch(
-          `http://localhost:8080/api/v1/customer/search?q=${query}`,
+          `${apiUrl}/api/v1/customer/search?q=${query}`,
           {
             method: "GET",
             credentials: "include",

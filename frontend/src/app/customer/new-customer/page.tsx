@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import { FileUpload } from "@/components/ui/file-upload";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL
 
 const FormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -48,7 +49,7 @@ function OcrUploadSection({ customerId }: { customerId: number }) {
 
     try {
       setUploading(true);
-      const res = await fetch("http://localhost:8080/api/v1/ocr/imagetotext", {
+      const res = await fetch(`${apiUrl}/api/v1/ocr/imagetotext`, {
         method: "POST",
         body: formData,
         credentials: "include",
@@ -110,7 +111,7 @@ function page() {
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     try {
-      const response = await fetch("http://localhost:8080/api/v1/customer/create", {
+      const response = await fetch(`${apiUrl}/api/v1/customer/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

@@ -7,7 +7,8 @@ const app = express()
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000', // Or '*', but specific is better
+  origin: ['http://localhost:3000',
+  'https://your-frontend-domain.com'], // Or '*', but specific is better
   credentials: true // If you're using cookies
 }));
 app.use(express.json())

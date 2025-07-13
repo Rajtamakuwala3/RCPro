@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Terminal } from 'lucide-react';
 import { useAuth } from "@/components/authCheck";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL
 
 
 export default function LoginForm() {
@@ -18,7 +19,7 @@ export default function LoginForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/api/v1/admin/login', {
+      const response = await fetch(`${apiUrl}/api/v1/admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

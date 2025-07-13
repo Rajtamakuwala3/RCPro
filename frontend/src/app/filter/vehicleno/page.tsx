@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL
 
 function page() {
   const [vehicleNo, setVehicleNo] = useState("");
@@ -18,7 +19,7 @@ function page() {
     try {
       setLoading(true);
       const res = await fetch(
-        `http://localhost:8080/api/v1/fetch/fetchbyvehicleno/${vehicleNo}`,
+        `${apiUrl}/api/v1/fetch/fetchbyvehicleno/${vehicleNo}`,
         {
           method: "GET",
           credentials: "include",

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL
 
 function Page() {
   const [month, setMonth] = useState<number>(11);
@@ -29,7 +30,7 @@ function Page() {
     setData([]);
 
     try {
-      const url = `http://localhost:8080/api/v1/fetch/fetchbycylindermonth?month=${month}&year=${year}`;
+      const url = `${apiUrl}/api/v1/fetch/fetchbycylindermonth?month=${month}&year=${year}`;
       const res = await fetch(url, {
         method: "GET",
         credentials: "include",
