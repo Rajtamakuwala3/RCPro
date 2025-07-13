@@ -1,7 +1,7 @@
 import asyncHandler from '../utils/asyncHandler.js';
 import jwt from 'jsonwebtoken';
-import { ApiError } from '../utils/ApiError.js';
-import { ApiResponse } from '../utils/ApiResponse.js';
+import { ApiError } from '../utils/apiError.js';
+import { ApiResponse } from '../utils/apiResponse.js';
 import  supabase  from '../db/dbConnect.js'; // Make sure the path is correct
 import dotenv from 'dotenv';
 
