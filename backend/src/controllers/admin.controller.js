@@ -119,12 +119,13 @@ const loginAdmin = asyncHandler(async (req, res) => {
     const options = {
         httpOnly: true,
         secure: true,
+        sameSite: 'None',
       };
 
     
     res.status(200)
-    .cookie("accessToken", String(accessToken), options)
-    .cookie("refreshToken", String(refreshToken), options)
+    .cookie("accessToken", accessToken, options)
+    .cookie("refreshToken", refreshToken, options)
     .json(   
         new ApiResponse(200, adminResponse, "Admin logged in successfully")
     );
