@@ -8,8 +8,9 @@ const app = express()
 // Middleware
 app.use(cors({
   origin: [
-    'http://localhost:3000', // for local dev
-    'https://rcstatus-frontend.onrender.com' // for deployed frontend
+     'http://localhost:3000',                     // Local development
+    'https://rcstatus-frontend.onrender.com',    // Old frontend (if still used)
+    'https://rcpro.onrender.com'                 // ✅ New deployed frontend
   ],
   credentials: true
 }));
