@@ -44,7 +44,7 @@ function page() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#0f0f0f] px-4">
-      <div className="w-full max-w-xl bg-black text-white p-6 rounded-lg shadow space-y-4">
+      <div className="w-full max-w-xl bg-black text-white p-6 pt-20 rounded-lg shadow space-y-4">
         <h2 className="text-xl font-semibold text-center">
           Search RC Book by Vehicle Number
         </h2>
