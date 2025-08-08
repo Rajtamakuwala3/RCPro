@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-const apiUrl = process.env.NEXT_PUBLIC_API_URL
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 function page() {
   const [vehicleNo, setVehicleNo] = useState("");
@@ -43,8 +43,8 @@ function page() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#0f0f0f] px-4">
-      <div className="w-full max-w-xl bg-black text-white p-6 pt-20 rounded-lg shadow space-y-4">
+    <div className="flex justify-center items-start min-h-screen bg-[#0f0f0f] px-4 pt-32">
+      <div className="w-full max-w-xl bg-black text-white p-6 rounded-lg shadow space-y-4">
         <h2 className="text-xl font-semibold text-center">
           Search RC Book by Vehicle Number
         </h2>
