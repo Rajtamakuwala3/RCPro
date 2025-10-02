@@ -5,6 +5,123 @@ import { ApiError } from "../utils/apiError.js";
 import { ApiResponse } from "../utils/apiResponse.js";
 import supabase from "../db/dbConnect.js";
 
+// // Optional: Basic key-value line parser
+// function parseRCStatusText(text) {
+//   const lines = text
+//     .split("\n")
+//     .map((line) => line.trim())
+//     .filter(Boolean);
+
+//   const json = {
+//     rc_status: {},
+//     validity: {},
+//     Insurance_Details: {
+//       Company: "",
+//       Validity: "",
+//       Policy_No: "",
+//     },
+//     Permit_Details: {},
+//     financed: false,
+//     CNG_Hydro_Testing_Certificate_Details: {},
+//   };
+
+//   let section = "";
+
+//   lines.forEach((line, index) => {
+//     if (!line) return;
+
+//     if (line.includes("Status:")) {
+//       const [reg, statusPart] = line.split("Status:");
+//       json.rc_status.registration_number = reg.trim().split(" ").pop();
+//       json.rc_status.status = statusPart.trim();
+//       section = "rc_status";
+//     } else if (line.includes("Three Wheeler")) {
+//       json.rc_status.vehicle_type = line;
+//     } else if (line.includes("Fuel:")) {
+//       const fuelMatch = line.match(/Fuel:\s*(.+?)\s+Emission/);
+//       const emissionMatch = line.match(/Emission norms:\s*(.+)$/);
+//       if (fuelMatch) json.rc_status.fuel = fuelMatch[1].trim();
+//       if (emissionMatch)
+//         json.rc_status.emission_norms = emissionMatch[1].trim();
+//     } else if (line.startsWith("RE ")) {
+//       json.rc_status.model = line.trim();
+//     } else if (line.includes("BAJAJ AUTO")) {
+//       json.rc_status.manufacturer = line;
+//     } else if (line.startsWith("#")) {
+//       json.rc_status.location = line;
+//     } else if (line.includes("Owner Name:")) {
+//       const ownerMatch = line.match(/Owner Name:\s*(.*?)\s+Registration Date:/);
+//       const dateMatch = line.match(/Registration Date:\s*(\d{2}-\w{3}-\d{4})/);
+//       if (ownerMatch) json.rc_status.owner_name = ownerMatch[1].trim();
+//       if (dateMatch) json.rc_status.registration_date = dateMatch[1].trim();
+//     } else if (line.includes("Fitness/REGN:")) {
+//       const fitnessMatch = line.match(/Fitness\/REGN:\s*(\S+)/);
+//       const mvTaxMatch = line.match(/MV Tax:\s*(\S+)/);
+//       if (fitnessMatch) json.validity.fitness_regn = fitnessMatch[1];
+//       if (mvTaxMatch) json.validity.mv_tax = mvTaxMatch[1];
+//     } else if (line.startsWith("PUCC:")) {
+//       json.validity.pucc = line.split(":")[1]?.trim();
+//     } else if (line.startsWith("Company:")) {
+//       const nextLine = lines[index + 1];
+//       if (nextLine) json.Insurance_Details.Company = nextLine.trim();
+//     } else if (line.startsWith("Validity:")) {
+//       const nextLine = lines[index + 1];
+//       if (nextLine) json.Insurance_Details.Validity = nextLine.trim();
+//     } else if (line.startsWith("Policy No:")) {
+//       const nextLine = lines[index + 1];
+//       if (nextLine) json.Insurance_Details.Policy_No = nextLine.trim();
+//     } else if (line.includes("Permit Details")) {
+//       section = "permit";
+//     } else if (
+//       section === "permit" &&
+//       line.includes("Contract Carriage Permit")
+//     ) {
+//       json.Permit_Details.type =
+//         "Contract Carriage Permit [AUTO RIKSHAW PERMIT]";
+//     } else if (section === "permit" && line.includes("Permit No")) {
+//       const match = line.match(/Permit No:\s*(\S+)\s+Valid upto:\s*(\S+)/);
+//       if (match) {
+//         json.Permit_Details.permit_no = match[1];
+//         json.Permit_Details.valid_upto = match[2];
+//       }
+//     } else if (line.toLowerCase().startsWith("financed")) {
+//       json.financed = line.toUpperCase().includes("YES");
+//     } else if (line.includes("CNG Hydro Testing Certificate Details")) {
+//       section = "cng";
+//     } else if (line.includes("CNG Hydro Testing Certificate Details")) {
+//       section = "cng";
+//     } else if (section === "cng" && line.includes("Rudra Energy")) {
+//       const nextLine = lines[index + 1] || "";
+//       const prevLine = lines[index - 1] || "";
+
+//       // Build company name
+//       const companyName = (prevLine + " Rudra Energy " + nextLine)
+//         .replace(/\s+/g, " ")
+//         .trim();
+
+//       // Find where "Rudra Energy" starts in line
+//       const rudraIndex = line.indexOf("Rudra Energy");
+
+//       // Split left and right parts manually
+//       const leftPart = line.slice(0, rudraIndex).trim(); // should be SI.No, e.g. "1"
+//       const rightPart = line.slice(rudraIndex + "Rudra Energy".length).trim();
+
+//       // Now split rightPart on spaces to get certificate no etc.
+//       const dataParts = rightPart.split(/\s+/);
+
+//       if (dataParts.length >= 4) {
+//         json.CNG_Hydro_Testing_Certificate_Details = {
+//           Company_Name: companyName,
+//           Testing_Certificate_No: dataParts[0], // this should be "G57753/2024/26970"
+//           Next_Test_Due: dataParts[2], // this should be "05/12/2027"
+//         };
+//       }
+//     }
+//   });
+
+//   return json;
+// }
+
 // Optional: Basic key-value line parser
 function parseRCStatusText(text) {
   const lines = text
@@ -22,7 +139,7 @@ function parseRCStatusText(text) {
     },
     Permit_Details: {},
     financed: false,
-    CNG_Hydro_Testing_Certificate_Details: {},
+    CNG_Hydro_Testing_Certificate_Details: {}, // Initialize as an empty object
   };
 
   let section = "";
@@ -30,6 +147,7 @@ function parseRCStatusText(text) {
   lines.forEach((line, index) => {
     if (!line) return;
 
+    // --- All previous parsing logic remains the same ---
     if (line.includes("Status:")) {
       const [reg, statusPart] = line.split("Status:");
       json.rc_status.registration_number = reg.trim().split(" ").pop();
@@ -88,33 +206,35 @@ function parseRCStatusText(text) {
       json.financed = line.toUpperCase().includes("YES");
     } else if (line.includes("CNG Hydro Testing Certificate Details")) {
       section = "cng";
-    } else if (line.includes("CNG Hydro Testing Certificate Details")) {
-      section = "cng";
-    } else if (section === "cng" && line.includes("Rudra Energy")) {
-      const nextLine = lines[index + 1] || "";
-      const prevLine = lines[index - 1] || "";
+    }
+    // --- REVISED AND IMPROVED CNG PARSING LOGIC ---
+    else if (section === "cng" && /\d{2}\/\d{2}\/\d{4}/.test(line)) {
+      // This condition checks if the line contains a date, indicating it's the data row.
+      const dateRegex = /(\d{2}\/\d{2}\/\d{4})/g;
+      const datesFound = line.match(dateRegex);
+      const parts = line.split(/\s+/);
 
-      // Build company name
-      const companyName = (prevLine + " Rudra Energy " + nextLine)
-        .replace(/\s+/g, " ")
-        .trim();
+      if (datesFound && datesFound.length >= 2) {
+        const testDate = datesFound[0]; // e.g., "06/12/2024"
+        const nextTestDueDate = datesFound[1]; // e.g., "05/12/2027"
 
-      // Find where "Rudra Energy" starts in line
-      const rudraIndex = line.indexOf("Rudra Energy");
+        // Find the certificate number, which is the word right before the first date.
+        const testDateIndex = parts.indexOf(testDate);
+        const certificateNo = testDateIndex > 0 ? parts[testDateIndex - 1] : null;
 
-      // Split left and right parts manually
-      const leftPart = line.slice(0, rudraIndex).trim(); // should be SI.No, e.g. "1"
-      const rightPart = line.slice(rudraIndex + "Rudra Energy".length).trim();
+        // The company name is everything between the first word (Sl.No) and the certificate number.
+        // This handles company names with one or more words.
+        const companyName = testDateIndex > 2 ? parts.slice(1, testDateIndex - 1).join(" ") : null;
 
-      // Now split rightPart on spaces to get certificate no etc.
-      const dataParts = rightPart.split(/\s+/);
-
-      if (dataParts.length >= 4) {
         json.CNG_Hydro_Testing_Certificate_Details = {
-          Company_Name: companyName,
-          Testing_Certificate_No: dataParts[0], // this should be "G57753/2024/26970"
-          Next_Test_Due: dataParts[2], // this should be "05/12/2027"
+          Company_Name: companyName,                   // "Rudra Energy"
+          Testing_Certificate_No: certificateNo,       // "G57753/2024/26970"
+          Test_Date: testDate,                         // "06/12/2024"
+          Next_Test_Due: nextTestDueDate,              // "05/12/2027"
         };
+        
+        // Once we've parsed the first data row, we can stop looking in the CNG section.
+        section = ""; 
       }
     }
   });
