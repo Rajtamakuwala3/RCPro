@@ -181,20 +181,48 @@ const ocrHandler = asyncHandler(async (req, res) => {
   // store ocr data in OCR Data table
   // store data in db RC Book table
 
+  // const { id } = req.body;
+
+  // if (!id) {
+  //   throw new ApiError(400, "CustomerId is not provided");
+  // }
+  // console.log(id);
+  // const rcBookLocalPath = req.file;
+  // if (!rcBookLocalPath) {
+  //   throw new ApiError(400, "Please provide a file");
+  // }
+
+  // const rcBook = await uploadOnCloudinary(rcBookLocalPath.path);
+  // if (!rcBook) {
+  //   throw new ApiError(500, "Error uploading file to cloudinary");
+  // }
+
+  // const imageUrl = rcBook.url;
+
+
+  // if (!imageUrl) {
+  //   throw new ApiError(500, "Error getting file url");
+  // }
+
   const { id } = req.body;
 
   if (!id) {
     throw new ApiError(400, "CustomerId is not provided");
   }
-  console.log(id);
-  const rcBookLocalPath = req.file;
-  if (!rcBookLocalPath) {
+
+  // req.file now comes from memoryStorage. It contains a 'buffer' property.
+  const file = req.file;
+  if (!file) {
     throw new ApiError(400, "Please provide a file");
   }
 
-  const rcBook = await uploadOnCloudinary(rcBookLocalPath.path);
-  if (!rcBook) {
-    throw new ApiError(500, "Error uploading file to cloudinary");
+  // We pass the buffer directly to our new uploader function.
+  // There is no longer a '.path' property to use.
+  const rcBook = await uploadOnCloudinary(file.buffer);
+
+  // A more robust check for the upload result.
+  if (!rcBook || !rcBook.url) {
+    throw new ApiError(500, "Error uploading file to cloudinary or URL not found");
   }
 
   const imageUrl = rcBook.url;

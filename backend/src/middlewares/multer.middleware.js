@@ -14,23 +14,16 @@
 // export const upload = multer({ storage: storage })
 
 import multer from "multer";
-import path from "path";
-import { fileURLToPath } from "url";
 
-// Resolve project root directory
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// We no longer need path, fileURLToPath, or fs for this configuration.
+// By using memoryStorage, we avoid dealing with the filesystem entirely.
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../public/temp")); // always absolute
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    const ext = path.extname(file.originalname);
-    const base = path.basename(file.originalname, ext);
-    cb(null, `${base}-${uniqueSuffix}${ext}`);
+const storage = multer.memoryStorage();
+
+export const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 10 * 1024 * 1024, // Optional: limit file size to 10MB
   },
 });
 
-export const upload = multer({ storage });
